@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 app = FastAPI()
 
 @app.get("/")
-def home():
+def read_root():
     return {"message": "deploymentAI!"}
 
 @app.get("/ui",responses_class=HTMLResponse)
