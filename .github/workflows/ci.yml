@@ -33,7 +33,7 @@ jobs:
         steps:
           - uses: actions/checkout@v4
           - uses: hashicorp/setup-terraform@v3
-          - run: terraform -chdir=terraform fmt -check
+          - run: terraform -chdir=terraform fmt
           - run: terraform -chdir=terraform init -backend=false
           - run: terraform -chdir=terraform validate
             
