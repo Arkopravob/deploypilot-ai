@@ -28,3 +28,13 @@ jobs:
             - name: Build Docker Image
               run: |
                   docker build -t deploypilot-ai .
+    terraform:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          - uses: hashicorp/setup-terraform@v3
+          - run: terraform -chdir=terraform fmt -check
+          - run: terraform -chdir=terraform init -backend=false
+          - run: terraform -chdir=terraform validate
+            
+        
